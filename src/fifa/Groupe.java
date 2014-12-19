@@ -24,13 +24,6 @@ class Groupe {
     }
     
     private void initJournee(){
-        boolean joue[][]= new boolean[4][4];
-        for(int i=0;i<4;i++){
-            for(int j=0;j<4;j++){
-                joue[i][j] = j==i;
-            }
-        }
-                
         for(int i=0;i<8;i++){
             
         }
