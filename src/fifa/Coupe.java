@@ -11,7 +11,12 @@ package fifa;
  * @author Olivier
  */
 public class Coupe {
-    Poule poule;
-    EliminationDirect elimination;
-    Barrage barrage;
+    private Poule poule;
+    private EliminationDirect elimination;
+    private Barrage barrage;
+    private int annee;
+
+    public Coupe(int annee) {
+        this.annee = annee;
+    }
 }

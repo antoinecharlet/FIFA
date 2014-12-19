@@ -6,10 +6,16 @@
 
 package fifa;
 
+import java.util.Calendar;
+
 /**
  *
  * @author Olivier
  */
 public class Fenetre {
+
+    public Fenetre() {
+        
+    }
     
 }

@@ -11,5 +11,9 @@ package fifa;
  * @author Olivier
  */
 public class C3 extends Coupe{
+
+    public C3(int annee) {
+        super(annee);
+    }
     
 }

@@ -6,6 +6,7 @@
 package fifa;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
@@ -24,7 +25,8 @@ class Groupe {
     }
     
     private void initJournee(){
-        for(int i=0;i<8;i++){
+        for(int i=0;i<4;i++){
+            //match[i]=new Journee(i,true,new Date(Calendar.getInstance().getTime().getYear())); //int num,boolean alle,Date date,Equipe domicil,Equipe exterieur
             
         }
     }
