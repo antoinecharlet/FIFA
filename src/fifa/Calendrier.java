@@ -6,13 +6,16 @@
 
 package fifa;
 
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
  * @author Olivier
  */
-public class EliminationDirect {
-    ArrayList<Equipe> equipe;
-    private int tour;
+public class Calendrier {
+   
+
 }

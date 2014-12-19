@@ -6,10 +6,12 @@
 
 package fifa;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Olivier
  */
 public class Barrage {
-    
+    ArrayList<Equipe>equipe;
 }

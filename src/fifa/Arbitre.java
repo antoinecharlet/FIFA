@@ -11,5 +11,5 @@ package fifa;
  * @author Olivier
  */
 public class Arbitre {
-    
+    private String nom,prenom;
 }

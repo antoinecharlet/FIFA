@@ -11,5 +11,5 @@ package fifa;
  * @author Olivier
  */
 public class Equipe {
-    
+    private int point;
 }

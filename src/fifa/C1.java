@@ -10,6 +10,6 @@ package fifa;
  *
  * @author Olivier
  */
-public class C1 {
+public class C1 extends Coupe{
     
 }

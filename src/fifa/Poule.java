@@ -6,10 +6,13 @@
 
 package fifa;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Olivier
  */
 public class Poule {
-    
+    ArrayList<Groupe> groupe;
+    ArrayList<Journee> journee;
 }

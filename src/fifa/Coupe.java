@@ -11,5 +11,7 @@ package fifa;
  * @author Olivier
  */
 public class Coupe {
-    
+    Poule poule;
+    EliminationDirect elimination;
+    Barrage barrage;
 }

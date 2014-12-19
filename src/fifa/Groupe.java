@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package fifa;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author Olivier
+ * @author antoine
  */
-public class EliminationDirect {
-    ArrayList<Equipe> equipe;
-    private int tour;
+class Groupe {
+    private int num;
+    private ArrayList<Equipe> equipe;
 }
