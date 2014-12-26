@@ -6,14 +6,20 @@
 
 package fifa;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Olivier
  */
 public class C1 extends Coupe{
-
-    public C1(int annee) {
-        super(annee);
-    }
     
+    //private Poule poule;
+    //private EliminationDirect elimination;
+    //private Barrage barrage;
+    
+    public C1() {
+        super();
+    }
+
 }

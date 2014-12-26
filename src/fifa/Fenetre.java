@@ -13,9 +13,9 @@ import java.util.Calendar;
  * @author Olivier
  */
 public class Fenetre {
-
+    Coupe coupe;
     public Fenetre() {
-        
+        coupe=new C1();
     }
     
 }

@@ -7,27 +7,55 @@ package fifa;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
  * @author antoine
  */
 class Groupe {
-    private int num;
-    private Equipe[] equipe;
-    private Journee[] match;
 
-    public Groupe(int num,Equipe[] equipe) {
+    private int num;
+    private ArrayList<Equipe> equipe;
+    private Journee[] match;
+    private ArrayList<Arbitre> arbitre;
+
+    public Groupe(ArrayList<Arbitre> arbitre, int num, Equipe[] equipe) {
         this.num = num;
-        this.equipe = equipe;
-        match=new Journee[8];
+        for (int i = 0; i < equipe.length; i++) {
+            this.equipe.add(equipe[i]);
+        }
+        match = new Journee[(equipe.length - 1) * 2];
+        this.arbitre = arbitre;
         initJournee();
     }
-    
-    private void initJournee(){
-        for(int i=0;i<4;i++){
-            //match[i]=new Journee(i,true,new Date(Calendar.getInstance().getTime().getYear())); //int num,boolean alle,Date date,Equipe domicil,Equipe exterieur
-            
+
+    private void initJournee() {
+        boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
+        for (int i = 0; i < equipe.size() - 1; i++) {//match allé
+            Date date = new Date(2014, 9, 15);
+            match[i] = new Journee(arbitre, i, true, date, equipe); //
+            for (int j = 0; j < tmp.length; j++) {
+                for (int k = 0; k < tmp.length; k++) {
+                    if (!tmp[i][j]) {//si match non joué
+                        match[i].addConfrontation(equipe.get(i), equipe.get(j));
+                        tmp[i][j]=true;
+                        tmp[j][i]=true;
+                    }
+                }
+            }
+
         }
+        
+    }
+
+    private boolean[][] initTab() {
+        boolean tmp[][] = new boolean[equipe.size()][equipe.size()];
+        for (int i = 0; i < equipe.size(); i++) {
+            for (int j = 0; j < equipe.size(); j++) {
+                tmp[i][j] = i == j;
+            }
+        }
+        return tmp;
     }
 }

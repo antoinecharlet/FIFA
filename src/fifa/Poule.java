@@ -14,5 +14,18 @@ import java.util.ArrayList;
  */
 public class Poule {
     ArrayList<Groupe> groupe;
-    ArrayList<Journee> journee;
+    ArrayList<Equipe> equipe;
+    int nbGroup;
+
+
+    public Poule(ArrayList<Equipe> equipe) {
+        this.equipe=equipe;
+        this.groupe=new ArrayList();
+        initGroupe();
+    }
+    
+    private void initGroupe(){
+        nbGroup=equipe.size()/4;
+    }
+    
 }

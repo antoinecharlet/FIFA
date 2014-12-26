@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package fifa;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -17,7 +21,15 @@ public class Fifa {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new Fenetre();
+        Fenetre fe=new Fenetre();
     }
-    
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        String dateStr = simpleDateFormat.format(new Date());
+//        System.out.println(dateStr);
+//        
+//        simpleDateFormat = new SimpleDateFormat("dd MMMM yyyy zzzz G", Locale.FRENCH);
+//
+//        dateStr = simpleDateFormat.format(new Date());
+//
+//        System.out.println(dateStr);
 }

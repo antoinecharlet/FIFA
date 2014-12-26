@@ -7,33 +7,54 @@ package fifa;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author antoine
  */
 public class Journee {
+
     private final int num;
     private final Date date;
     private final boolean alle;
     private final ArrayList<Arbitre> arbitre;
-    private Confrontation confrontation=null;
+    private final ArrayList<Equipe> equipe;
+    private final ArrayList<Confrontation> confrontation;
 
-    Journee(ArrayList<Arbitre> arbitre,int num,boolean alle,Date date,ArrayList<Equipe> equipe) {
-        this.alle=alle;
-        this.num=num;
-        this.date=date;
-        this.arbitre=arbitre;
-        initConfrontation(); 
+    Journee(ArrayList<Arbitre> arbitre, int num, boolean alle, Date date, ArrayList<Equipe> equipe) {
+        this.alle = alle;
+        this.num = num;
+        this.date = date;
+        this.arbitre = arbitre;
+        this.equipe = equipe;
+        confrontation = new ArrayList();
+
     }
-    private void initConfrontation(){
-        ArrayList<Date> calendrierArbitre; 
-        for(int i=0;i<arbitre.size();i++){//parcours chaque arbitre
-            calendrierArbitre= arbitre.get(i).getCalendrier();
-            for(int j=0;j<calendrierArbitre.size();j++){//parcours matchs des arbitres
-                if(calendrierArbitre.get(j)!=date && arbitre.get(i).getPays()!=)
+
+    public void addConfrontation(Equipe e1, Equipe e2) {
+        Arbitre tmp = getArbitre();
+        try {
+            confrontation.add(new Confrontation(e1, e2, tmp));//confrontation=2equipes: arbitre
+        } catch (Exception e) {
+            System.out.println("Création de mathc impossible");
+        }
+    }
+
+    private Arbitre getArbitre() {
+        for (Arbitre arbitre1 : arbitre) {
+            //parcours de tous les arbitres
+            ArrayList<Date> calendrier = arbitre1.getCalendrier();
+            for (Date calendrier1 : calendrier) {
+                //parcours du calendrier de chaques arbitres
+                if (calendrier1.equals(this.date)) {
+                    return arbitre1;
+                }
             }
         }
-        confrontation=new Confrontation(domicil,exterieur,);
+        System.out.println("pas d'arbitre disponible");
+        return null;
     }
+
 }
