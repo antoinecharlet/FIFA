@@ -59,4 +59,9 @@ public class Journee {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "Journee{" + "num=" + num + ", date=" + date + ", arbitre=" + arbitre + ", equipe=" + equipe + ", confrontation=" + confrontation + '}';
+    }
+
 }

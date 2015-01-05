@@ -53,7 +53,7 @@ public class Coupe {
             while (rs.next()) {
                 String nom=rs.getString("nom");//recuperer le nom
                 String prenom=rs.getString("prenom");//recuperer le prenom
-                int id=rs.getInt("id");
+                int id=rs.getInt("arbitre_id");
                 String pays=rs.getString("pays");
                 pays.toUpperCase();
                 tmp.add(new Arbitre(id,nom,prenom,pays));

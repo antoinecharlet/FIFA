@@ -16,9 +16,9 @@ public class ConnexionBDarbitre {
     private ConnexionBDarbitre() {
         if (connect == null) {
             try {
-                Class.forName("org.sqlite.JDBC").newInstance();
+                Class.forName("org.sqlite.JDBC");
                 //on r�cup�re le nom de la bd dans le fichier nomBD.txt
-                connect = DriverManager.getConnection("jdbc:sqlite:arbitre.sqlite ");
+                connect = DriverManager.getConnection("jdbc:sqlite:arbitre.sqlite");
             } catch (Exception ex) {
                 connect = null;
                 System.err.println(ex.getMessage());

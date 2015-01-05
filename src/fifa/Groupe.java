@@ -28,6 +28,9 @@ class Groupe {
         initJournee();
     }
 
+    public String get(){
+        return match[0].toString();
+    }
     private void initJournee() {
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
         for (int i = 0; i < equipe.size() - 1; i++) {//match allé
