@@ -27,8 +27,9 @@ public class Coupe {
     }
 
     private ArrayList<Equipe> initEquipe() {//fonction qui recuper les donnée de la BD
-        ArrayList<Equipe> tmp = null;
-
+        ArrayList<Equipe> tmp = new ArrayList();
+        
+        
         return tmp;
     }
 

@@ -11,11 +11,13 @@ package fifa;
  * @author Olivier
  */
 public class Equipe {
+    private String nom;
     private int point;
     private int nbBut;
     private String pays;
 
-    public Equipe(String pays) {
+    public Equipe(String nom,String pays) {
+        this.nom=nom;
         point=0;
         this.pays=pays;
         nbBut=0;
