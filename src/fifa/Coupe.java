@@ -41,13 +41,15 @@ public class Coupe {
         ArrayList<Arbitre> tmp=new ArrayList();
         
         try {
-            
-            
             Statement st = ConnexionBD.getConnexion().createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM 'commandes' where id_produit ="+idProduit+" AND  date like '2014%'");
+            ResultSet rs = st.executeQuery("SELECT * FROM 'arbitre'");
             while (rs.next()) {
-                String date=rs.getString("date");//recuperer le mois
-                tmp.add(null)
+                String nom=rs.getString("nom");//recuperer le nom
+                String prenom=rs.getString("prenom");//recuperer le prenom
+                int id=rs.getInt("id");
+                String pays=rs.getString("pays");
+                pays.toUpperCase();
+                tmp.add(new Arbitre(id,nom,prenom,pays));
             }
         } catch (Exception ex) {
             return tmp;

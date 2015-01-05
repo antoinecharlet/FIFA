@@ -15,9 +15,10 @@ import java.util.Date;
  */
 public class Arbitre {
     private String nom,prenom,pays;
+    private int id;
     private ArrayList<Date> calendrier;
 
-    public Arbitre(String nom, String prenom,String pays) {
+    public Arbitre(int id,String nom, String prenom,String pays) {
         this.nom = nom;
         this.prenom = prenom;
         this.pays=pays;
