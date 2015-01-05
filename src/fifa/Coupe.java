@@ -27,13 +27,20 @@ public class Coupe {
     public Coupe() {
         this.annee = getAnnee();
         arbitre=initArbitre();
+        System.out.println(arbitre.size());
         poule = new Poule(initEquipe(),arbitre);
     }
 
     private ArrayList<Equipe> initEquipe() {//fonction qui recuper les donnée de la BD
         ArrayList<Equipe> tmp = new ArrayList();
-        
-        
+        tmp.add(new Equipe("lapin","coucou"));
+        tmp.add(new Equipe("lapin1","couc4ou"));
+        tmp.add(new Equipe("lapin2","cou4cou"));
+        tmp.add(new Equipe("lapin3","couco4u"));
+        tmp.add(new Equipe("lapin4","coucou"));
+        tmp.add(new Equipe("lapin5","coucou"));
+        tmp.add(new Equipe("lapin6","coucou"));
+        tmp.add(new Equipe("lapin7","coucou"));
         return tmp;
     }
 
@@ -41,7 +48,7 @@ public class Coupe {
         ArrayList<Arbitre> tmp=new ArrayList();
         
         try {
-            Statement st = ConnexionBD.getConnexion().createStatement();
+            Statement st = ConnexionBDarbitre.getConnexion().createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM 'arbitre'");
             while (rs.next()) {
                 String nom=rs.getString("nom");//recuperer le nom

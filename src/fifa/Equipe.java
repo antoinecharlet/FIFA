@@ -38,6 +38,19 @@ public class Equipe {
     public int getNbBut() {
         return nbBut;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipe{" + "nom=" + nom + '}';
+    }
     
     
 }

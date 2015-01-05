@@ -10,10 +10,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Scanner;
 
-public class ConnexionBD {
+public class ConnexionBDarbitre {
     private static Connection connect = null;
 
-    private ConnexionBD() {
+    private ConnexionBDarbitre() {
         if (connect == null) {
             try {
                 Class.forName("org.sqlite.JDBC").newInstance();
@@ -28,7 +28,7 @@ public class ConnexionBD {
 
     public static Connection getConnexion() {
         if (connect==null){
-            new ConnexionBD();
+            new ConnexionBDarbitre();
             System.out.println("Connexion etablie");
         }
         //else

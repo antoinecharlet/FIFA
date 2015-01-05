@@ -26,12 +26,12 @@ public class Poule {
     }
 
     private void initGroupe() {
-        if (equipe.size()<4) {
+        if (equipe.size()>3) {
             nbGroup = equipe.size() / 4;
             for(int i=0;i<nbGroup;i++){
-                Equipe[] listEquipe=new Equipe[4];
+                ArrayList<Equipe> listEquipe=new ArrayList();
                 for(int j=0;j<4;j++){//initialiation equipe du groupe
-                    listEquipe[j]=equipe.get(j+i*4);
+                    listEquipe.add(equipe.get(j+i*4));
                 } 
                 groupe.add(new Groupe(arbitre,i,listEquipe));
             }

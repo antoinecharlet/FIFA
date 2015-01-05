@@ -46,9 +46,11 @@ public class Journee {
         for (Arbitre arbitre1 : arbitre) {
             //parcours de tous les arbitres
             ArrayList<Date> calendrier = arbitre1.getCalendrier();
+            if(calendrier.isEmpty())
+                return arbitre1;
             for (Date calendrier1 : calendrier) {
                 //parcours du calendrier de chaques arbitres
-                if (calendrier1.equals(this.date)) {
+                if (!calendrier1.equals(this.date)) {
                     return arbitre1;
                 }
             }

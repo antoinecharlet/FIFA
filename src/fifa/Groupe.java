@@ -20,12 +20,10 @@ class Groupe {
     private Journee[] match;
     private ArrayList<Arbitre> arbitre;
 
-    public Groupe(ArrayList<Arbitre> arbitre, int num, Equipe[] equipe) {
-        this.num = num;
-        for (int i = 0; i < equipe.length; i++) {
-            this.equipe.add(equipe[i]);
-        }
-        match = new Journee[(equipe.length - 1) * 2];
+    public Groupe(ArrayList<Arbitre> arbitre, int num, ArrayList<Equipe> equipe) {
+        this.num = num;    
+            this.equipe=equipe;
+        match = new Journee[(equipe.size() - 1) * 2];
         this.arbitre = arbitre;
         initJournee();
     }
@@ -58,4 +56,15 @@ class Groupe {
         }
         return tmp;
     }
+
+    @Override
+    public String toString() {
+        String tmp="";
+        for(int i =0;i<equipe.size();i++){
+            tmp=tmp+" "+equipe.get(i).getNom();
+        }
+        return "Groupe{" + "num=" + num + ", equipe=" + equipe +'}';
+    }
+    
+    
 }
