@@ -5,6 +5,8 @@
  */
 package fifa;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +18,7 @@ import java.util.Date;
 public class Coupe {
 
     Poule poule;
+    ArrayList<Arbitre> arbitre;
     EliminationDirect elimination;
     Barrage barrage;
     ArrayList<Equipe> equipe;
@@ -23,7 +26,8 @@ public class Coupe {
 
     public Coupe() {
         this.annee = getAnnee();
-        poule = new Poule(initEquipe());
+        arbitre=initArbitre();
+        poule = new Poule(initEquipe(),arbitre);
     }
 
     private ArrayList<Equipe> initEquipe() {//fonction qui recuper les donnée de la BD
@@ -33,6 +37,25 @@ public class Coupe {
         return tmp;
     }
 
+    private ArrayList<Arbitre> initArbitre(){
+        ArrayList<Arbitre> tmp=new ArrayList();
+        
+        try {
+            
+            
+            Statement st = ConnexionBD.getConnexion().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM 'commandes' where id_produit ="+idProduit+" AND  date like '2014%'");
+            while (rs.next()) {
+                String date=rs.getString("date");//recuperer le mois
+                tmp.add(null)
+            }
+        } catch (Exception ex) {
+            return tmp;
+        }
+        
+        return tmp;
+    }
+    
     private int getAnnee() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
         String dateStr = simpleDateFormat.format(new Date());
