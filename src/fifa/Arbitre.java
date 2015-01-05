@@ -47,7 +47,7 @@ public class Arbitre {
 
     @Override
     public String toString() {
-        return "Arbitre{" + "nom=" + nom + ", prenom=" + prenom + ", id=" + id + '}';
+        return nom + " "+ prenom + " " + id ;
     }
     
 }

@@ -19,6 +19,7 @@ class Groupe {
     private ArrayList<Equipe> equipe;
     private Journee[] match;
     private ArrayList<Arbitre> arbitre;
+    Date date = new Date(2014, 9, 15);
 
     public Groupe(ArrayList<Arbitre> arbitre, int num, ArrayList<Equipe> equipe) {
         this.num = num;    
@@ -34,13 +35,12 @@ class Groupe {
     private void initJournee() {
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
         for (int i = 0; i < equipe.size() - 1; i++) {//match allé
-            Date date = new Date(2014, 9, 15);
+            date=date;
             match[i] = new Journee(arbitre, i, true, date, equipe); //
             for (int j = 0; j < tmp.length; j++) {
                 for (int k = 0; k < tmp.length; k++) {
                     if (!tmp[i][j]) {//si match non joué
                         match[i].addConfrontation(equipe.get(i), equipe.get(j));//ajout confontation
-                        System.out.println("match :"+i+" : "+equipe.get(i)+"VS "+equipe.get(j));
                         tmp[i][j]=true;
                         tmp[j][i]=true;
                     }
