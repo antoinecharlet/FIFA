@@ -49,7 +49,7 @@ public class Equipe {
 
     @Override
     public String toString() {
-        return "Equipe{" + "nom=" + nom + '}';
+        return  nom;
     }
     
     

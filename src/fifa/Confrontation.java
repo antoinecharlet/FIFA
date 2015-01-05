@@ -26,5 +26,10 @@ class Confrontation {
     public Equipe getEquipe2() {
         return equipe2;
     }
+
+    @Override
+    public String toString() {
+        return "Confrontation{" + "arbitre=" + arbitre + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + '}';
+    }
     
 }

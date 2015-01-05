@@ -39,7 +39,8 @@ class Groupe {
             for (int j = 0; j < tmp.length; j++) {
                 for (int k = 0; k < tmp.length; k++) {
                     if (!tmp[i][j]) {//si match non joué
-                        match[i].addConfrontation(equipe.get(i), equipe.get(j));
+                        match[i].addConfrontation(equipe.get(i), equipe.get(j));//ajout confontation
+                        System.out.println("match :"+i+" : "+equipe.get(i)+"VS "+equipe.get(j));
                         tmp[i][j]=true;
                         tmp[j][i]=true;
                     }

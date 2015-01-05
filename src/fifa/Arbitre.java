@@ -44,5 +44,10 @@ public class Arbitre {
     public String getPays() {
         return pays;
     }
+
+    @Override
+    public String toString() {
+        return "Arbitre{" + "nom=" + nom + ", prenom=" + prenom + ", id=" + id + '}';
+    }
     
 }
