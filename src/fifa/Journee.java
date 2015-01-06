@@ -38,7 +38,7 @@ public class Journee {
         try {
             confrontation.add(new Confrontation(e1, e2, tmp));//confrontation=2equipes: arbitre
             tmp.AjoutDate(date);
-            System.out.println("match :" + e1 + " VS " + e2 + " arbitre: " + tmp);
+            System.out.println("match :" + e1 + " VS " + e2 + " arbitre: " + tmp + " date: " + date);
         } catch (Exception e) {
             System.out.println("Création de match impossible");
         }
@@ -50,15 +50,16 @@ public class Journee {
             ArrayList<Date> calendrier = arbitre1.getCalendrier();
             if (calendrier.isEmpty()) {
                 return arbitre1;
-            }
-            for (Date calendrier1 : calendrier) {
-                //parcours du calendrier de chaques arbitres
-                if (!calendrier1.equals(this.date)) {
-                    return arbitre1;
+            } else {
+                for (Date calendrier1 : calendrier) {
+                    //parcours du calendrier de chaques arbitres
+                    if (calendrier1.compareTo(this.date) != 0) {
+                        return arbitre1;
+                    }
                 }
             }
         }
-        System.out.println("pas d'arbitre disponible");
+        System.out.println("pas d'arbitre disponible pour le : " + date);
         return null;
     }
 

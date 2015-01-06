@@ -22,33 +22,43 @@ class Groupe {
     Date date = new Date(2014, 9, 15);
 
     public Groupe(ArrayList<Arbitre> arbitre, int num, ArrayList<Equipe> equipe) {
-        this.num = num;    
-            this.equipe=equipe;
+        this.num = num;
+        this.equipe = equipe;
         match = new Journee[(equipe.size() - 1) * 2];
         this.arbitre = arbitre;
         initJournee();
     }
 
-    public String get(){
+    public String get() {
         return match[0].toString();
     }
+
     private void initJournee() {
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
-        for (int i = 0; i < equipe.size() - 1; i++) {//match allé
-            date=date;
+        for (int i = 0; i < equipe.size() - 1; i++) {//match allé  
+            date=ajouterJour(date,7);
             match[i] = new Journee(arbitre, i, true, date, equipe); //
             for (int j = 0; j < tmp.length; j++) {
                 for (int k = 0; k < tmp.length; k++) {
-                    if (!tmp[i][j]) {//si match non joué
+                    if (!tmp[i][j] && equipe.get(i).dispo(date) && equipe.get(j).dispo(date)) {//si match non joué
                         match[i].addConfrontation(equipe.get(i), equipe.get(j));//ajout confontation
-                        tmp[i][j]=true;
-                        tmp[j][i]=true;
+                        equipe.get(i).ajoutMatch(equipe.get(j), date);
+                        equipe.get(j).ajoutMatch(equipe.get(i), date);
+                        tmp[i][j] = true;
+                        tmp[j][i] = true;
                     }
                 }
             }
 
         }
-        
+
+    }
+
+    public static Date ajouterJour(Date date, int nbJour) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, nbJour);
+        return cal.getTime();
     }
 
     private boolean[][] initTab() {
@@ -63,12 +73,11 @@ class Groupe {
 
     @Override
     public String toString() {
-        String tmp="";
-        for(int i =0;i<equipe.size();i++){
-            tmp=tmp+" "+equipe.get(i).getNom();
+        String tmp = "";
+        for (int i = 0; i < equipe.size(); i++) {
+            tmp = tmp + " " + equipe.get(i).getNom();
         }
-        return "Groupe{" + "num=" + num + ", equipe=" + equipe +'}';
+        return "Groupe{" + "num=" + num + ", equipe=" + equipe + '}';
     }
-    
-    
+
 }

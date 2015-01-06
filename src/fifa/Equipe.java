@@ -3,24 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package fifa;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Olivier
  */
 public class Equipe {
-    private String nom;
+
+    private final String nom;
     private int point;
     private int nbBut;
-    private String pays;
+    private final String pays;
+    private ArrayList<Match> match;
 
-    public Equipe(String nom,String pays) {
-        this.nom=nom;
-        point=0;
-        this.pays=pays;
-        nbBut=0;
+    public Equipe(String nom, String pays) {
+        this.match=new ArrayList();
+        this.nom = nom;
+        point = 0;
+        this.pays = pays;
+        nbBut = 0;
+    }
+
+
+
+    boolean dispo(Date date) {
+        boolean tmp = true;
+        for(int i=0;i<match.size();i++){
+            if(date.compareTo(match.get(i).getDate())==0)
+                tmp=false;
+        }
+        return tmp;
+    }
+
+    public void ajoutMatch(Equipe equipe, Date date) {
+        match.add(new Match(equipe,date));
     }
 
     public void setPoint(int point) {
@@ -49,8 +69,27 @@ public class Equipe {
 
     @Override
     public String toString() {
-        return  nom;
+        return nom;
     }
     
-    
+        public class Match {
+
+        Equipe equipe;
+        Date date;
+
+        public Match(Equipe equipe, Date date) {
+            this.equipe=equipe;
+            this.date=date;
+        }
+
+        public Equipe getEquipe() {
+            return equipe;
+        }
+
+        public Date getDate() {
+            return date;
+        }
+        
+    }
+
 }
