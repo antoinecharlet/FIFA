@@ -19,6 +19,7 @@ public class Arbitre {
     private ArrayList<Date> calendrier;
 
     public Arbitre(int id,String nom, String prenom,String pays) {
+        this.id=id;
         this.nom = nom;
         this.prenom = prenom;
         this.pays=pays;

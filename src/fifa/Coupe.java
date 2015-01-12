@@ -33,8 +33,8 @@ public class Coupe {
 
     private ArrayList<Equipe> initEquipe() {//fonction qui recuper les donnée de la BD
         ArrayList<Equipe> tmp = new ArrayList();
-        tmp.add(new Equipe("lapin","coucou"));
-        tmp.add(new Equipe("lapin1","couc4ou"));
+        tmp.add(new Equipe("lapin","FrancE"));
+        tmp.add(new Equipe("lapin1",""));
         tmp.add(new Equipe("lapin2","cou4cou"));
         tmp.add(new Equipe("lapin3","couco4u"));
         tmp.add(new Equipe("lapin4","coucou"));
