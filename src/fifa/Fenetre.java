@@ -16,7 +16,7 @@ public class Fenetre {
     Coupe coupe;
     public Fenetre() {
         coupe=new C1();
-        System.out.print(coupe.poule.groupe.get(1)+" "+coupe.poule.groupe.get(1).get());
+        System.out.print(coupe.poule.groupe.get(0)+" "+coupe.poule.groupe.get(1).get());
     }
     
 }

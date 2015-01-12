@@ -35,9 +35,9 @@ class Groupe {
 
     private void initJournee() {
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
-        for (int i = 0; i < equipe.size() - 1; i++) {//match allé  
+        for (int i = 0; i < equipe.size(); i++) {//match allé  
             date=ajouterJour(date,7);
-            match[i] = new Journee(arbitre, i, true, date, equipe); //
+            match[i] = new Journee(arbitre, i, true, date, equipe); 
             for (int j = 0; j < tmp.length; j++) {
                 for (int k = 0; k < tmp.length; k++) {
                     if (!tmp[i][j] && equipe.get(i).dispo(date) && equipe.get(j).dispo(date)) {//si match non joué
@@ -77,7 +77,7 @@ class Groupe {
         for (int i = 0; i < equipe.size(); i++) {
             tmp = tmp + " " + equipe.get(i).getNom();
         }
-        return "Groupe{" + "num=" + num + ", equipe=" + equipe + '}';
+        return "Groupe "+ num + ", equipe=" + equipe + '}';
     }
 
 }

@@ -23,13 +23,5 @@ public class Fifa {
         // TODO code application logic here
         Fenetre fe=new Fenetre();
     }
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//        String dateStr = simpleDateFormat.format(new Date());
-//        System.out.println(dateStr);
-//        
-//        simpleDateFormat = new SimpleDateFormat("dd MMMM yyyy zzzz G", Locale.FRENCH);
-//
-//        dateStr = simpleDateFormat.format(new Date());
-//
-//        System.out.println(dateStr);
+
 }

@@ -27,7 +27,7 @@ public class Poule {
 
     private void initGroupe() {
         if (equipe.size()>3) {
-            nbGroup = equipe.size() / 4;
+            nbGroup = equipe.size()/ 4;
             for(int i=0;i<nbGroup;i++){
                 ArrayList<Equipe> listEquipe=new ArrayList();
                 for(int j=0;j<4;j++){//initialiation equipe du groupe
@@ -35,7 +35,6 @@ public class Poule {
                 } 
                 groupe.add(new Groupe(arbitre,i,listEquipe));
             }
-            
         } else //mal initialisé
         {
             System.out.println("Pas d'équipe");

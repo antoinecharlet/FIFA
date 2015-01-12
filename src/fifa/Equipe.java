@@ -24,7 +24,7 @@ public class Equipe {
         this.match=new ArrayList();
         this.nom = nom;
         point = 0;
-        this.pays = pays;
+        this.pays = pays.toUpperCase();
         nbBut = 0;
     }
 
