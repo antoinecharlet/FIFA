@@ -48,7 +48,7 @@ public class Journee {
         for (Arbitre arbitre1 : arbitre) {
             //parcours de tous les arbitres
             ArrayList<Date> calendrier = arbitre1.getCalendrier();
-            if (!arbitre1.getPays().equals(e2.getPays()) || !arbitre1.getPays().equals(e1.getPays())) {
+            if (!arbitre1.getPays().equalsIgnoreCase(e2.getPays()) && !arbitre1.getPays().equalsIgnoreCase(e1.getPays())) {
                 if (calendrier.isEmpty()) {
                     return arbitre1;
                 } else {

@@ -41,12 +41,12 @@ class Groupe {
             match[i] = new Journee(arbitre, i, true, date, equipe); 
             for (int j = 0; j < tmp.length; j++) {
                 for (int k = 0; k < tmp.length; k++) {
-                    if (!tmp[i][j] && equipe.get(i).dispo(date) && equipe.get(j).dispo(date)) {//si match non joué
-                        match[i].addConfrontation(equipe.get(i), equipe.get(j));//ajout confontation
-                        equipe.get(i).ajoutMatch(equipe.get(j), date);
-                        equipe.get(j).ajoutMatch(equipe.get(i), date);
-                        tmp[i][j] = true;
-                        tmp[j][i] = true;
+                    if (!tmp[j][k] && equipe.get(j).dispo(date) && equipe.get(k).dispo(date)) {//si match non joué
+                        match[i].addConfrontation(equipe.get(j), equipe.get(k));//ajout confontation
+                        equipe.get(j).ajoutMatch(equipe.get(k), date);
+                        equipe.get(k).ajoutMatch(equipe.get(j), date);
+                        tmp[j][k] = true;
+                        tmp[k][j] = true;
                     }
                 }
             }
