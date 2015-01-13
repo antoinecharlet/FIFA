@@ -36,7 +36,8 @@ class Groupe {
     private void initJournee() {
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
         for (int i = 0; i < equipe.size(); i++) {//match allé  
-            date=ajouterJour(date,7);
+            if(i%2==1)
+                date=ajouterJour(date,7);
             match[i] = new Journee(arbitre, i, true, date, equipe); 
             for (int j = 0; j < tmp.length; j++) {
                 for (int k = 0; k < tmp.length; k++) {
