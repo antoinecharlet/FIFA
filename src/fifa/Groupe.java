@@ -70,7 +70,10 @@ class Groupe {
         cal.add(Calendar.DATE, nbJour);
         return cal.getTime();
     }
-
+/**
+         * initialisation du tableau : true pour les equipe ayant deja joué l'une contre l'autre.
+         * 
+         */
     private boolean[][] initTab() {
         boolean tmp[][] = new boolean[equipe.size()][equipe.size()];
         for (int i = 0; i < equipe.size(); i++) {
