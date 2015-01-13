@@ -54,7 +54,16 @@ class Groupe {
         }
 
     }
-
+/**
+         * Ajouter jour a une date.
+         * 
+         * @param date
+         *            data actuel.
+         * @param nbJour
+         *            jour à ajouter
+         * 
+         *@return la date mise a jour;
+         */
     public static Date ajouterJour(Date date, int nbJour) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
