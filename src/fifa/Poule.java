@@ -31,7 +31,14 @@ public class Poule {
         this.groupe = new ArrayList();
         initGroupe();
     }
-
+/**
+     * simulation de tous les matchs de poule
+     */
+    public void simulation(){
+        for(Groupe groupe1:groupe){
+            groupe1.simulationMatchs();
+        }
+    }
     /**
      * Initialisation des groupes
      *

@@ -59,12 +59,36 @@ public class Journee {
     }
 
     /**
+     * simulation des rencontres
+     *
+     */
+    public void simulation() {
+        //parcours des confrontation
+        for (Confrontation confron1 : confrontation) {
+            //les buts sont gnéré (random)
+            int nbButDom = (int) (Math.random() * 3);
+            int nbButExt = (int) (Math.random() * 3);
+            if (nbButDom > nbButExt) {
+                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 1, nbButDom);
+                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 0, nbButExt);
+            } else if (nbButExt > nbButDom) {
+                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 1, nbButExt);
+                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 0, nbButDom);
+            }else {
+                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 2, nbButExt);
+                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 2, nbButDom);
+            }
+            System.out.println(confron1.getEquipeDom()+" "+nbButDom+" - "+nbButExt+" "+confron1.getEquipeExt());
+        };
+    }
+
+    /**
      * Recherche un arbitre disponible pour cette rencontre
      *
      * @param e1 equipe dom
      * @param e2 equipe ext
      *
-     * @return  Arbitre disponible
+     * @return Arbitre disponible
      */
     private Arbitre getArbitre(Equipe e1, Equipe e2) {
         for (Arbitre arbitre1 : arbitre) {

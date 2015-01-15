@@ -22,6 +22,7 @@ public class Fifa {
     public static void main(String[] args) {
         // TODO code application logic here
         Coupe c=new C1();
+        c.simulationPoule();
     }
 
 }

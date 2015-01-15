@@ -107,6 +107,15 @@ class Groupe {
         }
         return tmp;
     }
+    /**
+     * Simulation de tous les matchs du groupe
+     *
+     */
+    void simulationMatchs(){
+        for (Journee match1 : match) {
+            match1.simulation();
+        }
+    }
 
     @Override
     public String toString() {

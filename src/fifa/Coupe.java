@@ -45,7 +45,14 @@ public class Coupe {
         tmp.add(new Equipe("lapin7","coucou"));
         return tmp;
     }
-/**
+
+    /**
+         * simulation des matchs de poules
+         */
+    public void simulationPoule(){
+        poule.simulation();
+    }
+    /**
          * Initialisation depuis la BD des arbitres
          */
     private ArrayList<Arbitre> initArbitre(){

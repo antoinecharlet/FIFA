@@ -46,6 +46,26 @@ public class Equipe {
     }
 
     /**
+     * Mise a jour du score d'un match pour cette equipe.
+     *
+     * @param e equipe joué.
+     * @param victoire1 victoire ,2 null,0 defaite
+     * @param nbBut nombre de but marqué
+     *
+     */
+    public void setMatch(Equipe e, int victoire, int nbBut) {
+        match.get(match.indexOf(e) + 1).setVictoire(victoire);
+        if (victoire == 1) {//si victoire
+            this.point += 3;
+        } else if (victoire == 2) {//si null
+            this.point += 1;
+        } else {//si defaite
+            this.point += 0;
+        }
+        this.nbBut += nbBut;//maj des buts
+    }
+
+    /**
      * Ajout d'un match pour cette equipe.
      *
      * @param date data du match.
@@ -90,10 +110,17 @@ public class Equipe {
 
         Equipe equipe;
         Date date;
+        int victoire = -1;//1 : vicotire 
+        //0 defaite
+        //2 null
 
         public Match(Equipe equipe, Date date) {
             this.equipe = equipe;
             this.date = date;
+        }
+
+        public void setVictoire(int victoire) {
+            this.victoire = victoire;
         }
 
         public Equipe getEquipe() {
