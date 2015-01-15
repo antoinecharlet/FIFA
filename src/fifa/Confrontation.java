@@ -11,25 +11,25 @@ package fifa;
  */
 class Confrontation {
     private final Arbitre arbitre;
-    private final Equipe equipe1,equipe2;//equipe 1 a domicile
+    private final Equipe equipeDom,equipeExt;//equipe 1 a domicile
 
-    public Confrontation(Equipe equipe1, Equipe equipe2,Arbitre arbitre) {
-        this.equipe1 = equipe1;
-        this.equipe2 = equipe2;
+    public Confrontation(Equipe equipeDom, Equipe equipeExt,Arbitre arbitre) {
+        this.equipeDom = equipeDom;
+        this.equipeExt= equipeExt;
         this.arbitre=arbitre;
     }
 
-    public Equipe getEquipe1() {
-        return equipe1;
+    public Equipe getEquipeDom() {
+        return equipeDom;
     }
 
-    public Equipe getEquipe2() {
-        return equipe2;
+    public Equipe getEquipeExt() {
+        return equipeExt;
     }
 
     @Override
     public String toString() {
-        return "Confrontation{" + "arbitre=" + arbitre + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + '}';
+        return "arbitre=" + arbitre + ", equipe dom=" + equipeDom + " VS " + equipeExt;
     }
     
 }

@@ -21,7 +21,7 @@ public class Fifa {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Fenetre fe=new Fenetre();
+        Coupe c=new C1();
     }
 
 }

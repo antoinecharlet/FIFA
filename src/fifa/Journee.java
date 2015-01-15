@@ -7,8 +7,6 @@ package fifa;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,21 +18,34 @@ public class Journee {
     private final Date date;
     private final boolean alle;
     private final ArrayList<Arbitre> arbitre;
-    private final ArrayList<Equipe> equipe;
     private final ArrayList<Confrontation> confrontation;
 
-    Journee(ArrayList<Arbitre> arbitre, int num, boolean alle, Date date, ArrayList<Equipe> equipe) {
+    /**
+     * Ajouter journée.
+     *
+     * @param date date de journée
+     * @param arbitre liste des arbitres
+     * @parem num numero de journée
+     * @param alle true si les matchs sont "allés"
+     *
+     */
+    Journee(ArrayList<Arbitre> arbitre, int num, boolean alle, Date date) {
         this.alle = alle;
         this.num = num;
         this.date = date;
         this.arbitre = arbitre;
-        this.equipe = equipe;
-        confrontation = new ArrayList();
-
+        this.confrontation = new ArrayList();
     }
 
+    /**
+     * Ajouter confrontation.
+     *
+     * @param e1 Equipe domicil.
+     * @param e2 Equipe exterieur
+     *
+     */
     public void addConfrontation(Equipe e1, Equipe e2) {
-        Arbitre tmp = getArbitre(e1,e2);
+        Arbitre tmp = getArbitre(e1, e2);
         try {
             confrontation.add(new Confrontation(e1, e2, tmp));//confrontation=2equipes: arbitre
             System.out.println(e1 + " VS " + e2 + ", arbitre :" + tmp + " le : " + date);
@@ -44,6 +55,14 @@ public class Journee {
         }
     }
 
+    /**
+     * Recherche un arbitre disponible pour cette rencontre
+     *
+     * @param e1 equipe dom
+     * @param e2 equipe ext
+     *
+     * @return Arbitre disponible
+     */
     private Arbitre getArbitre(Equipe e1, Equipe e2) {
         for (Arbitre arbitre1 : arbitre) {
             //parcours de tous les arbitres
@@ -71,7 +90,7 @@ public class Journee {
 
     @Override
     public String toString() {
-        return "Journee{" + "num=" + num + ", date=" + date + ", arbitre=" + arbitre + ", equipe=" + equipe + ", confrontation=" + confrontation + '}';
+        return "Journee{" + "num=" + num + ", date=" + date + ", arbitre=" + arbitre + ", confrontation=" + confrontation + '}';
     }
 
 }

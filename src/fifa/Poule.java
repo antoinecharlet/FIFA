@@ -18,22 +18,33 @@ public class Poule {
     ArrayList<Arbitre> arbitre;
     int nbGroup;
 
-    public Poule(ArrayList<Equipe> equipe,ArrayList<Arbitre> arbitre) {
-        this.arbitre=arbitre;
+    /**
+     * ajout d'une poule de plusieurs equipes
+     *
+     * @param equipe equipe de la poule
+     * @param arbitre liste des arbitre
+     *
+     */
+    public Poule(ArrayList<Equipe> equipe, ArrayList<Arbitre> arbitre) {
+        this.arbitre = arbitre;
         this.equipe = equipe;
         this.groupe = new ArrayList();
         initGroupe();
     }
 
+    /**
+     * Initialisation des groupes
+     *
+     */
     private void initGroupe() {
-        if (equipe.size()>3) {
-            nbGroup = equipe.size()/ 4;
-            for(int i=0;i<nbGroup;i++){
-                ArrayList<Equipe> listEquipe=new ArrayList();
-                for(int j=0;j<4;j++){//initialiation equipe du groupe
-                    listEquipe.add(equipe.get(j+i*4));
-                } 
-                groupe.add(new Groupe(arbitre,i,listEquipe));
+        if (equipe.size() > 3) {
+            nbGroup = equipe.size() / 4;
+            for (int i = 0; i < nbGroup; i++) {
+                ArrayList<Equipe> listEquipe = new ArrayList();
+                for (int j = 0; j < 4; j++) {//initialiation equipe du groupe
+                    listEquipe.add(equipe.get(j + i * 4));
+                }
+                groupe.add(new Groupe(arbitre, i, listEquipe));
             }
         } else //mal initialisé
         {

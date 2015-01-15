@@ -21,30 +21,40 @@ class Groupe {
     private ArrayList<Arbitre> arbitre;
     Date date = new Date(2015, 9, 15);
 
+    /**
+     * Ajouter d'un groupe
+     *
+     * @paramarbitre liste des arbitres
+     * @param num numero de groupe
+     * @param equipe equipe du groupe
+     *
+     */
     public Groupe(ArrayList<Arbitre> arbitre, int num, ArrayList<Equipe> equipe) {
         this.num = num;
         this.equipe = equipe;
-        match = new Journee[(equipe.size() - 1) * 2];
+        match = new Journee[(equipe.size()) * 2];
         this.arbitre = arbitre;
         initJournee();
     }
 
-    public String get() {
-        return match[0].toString();
-    }
 
+    /**
+     * Initialisation des rencontres
+     *
+     */
     private void initJournee() {
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
         for (int i = 0; i < equipe.size(); i++) {//match allé  
-            if(i%2==1)
-                date=ajouterJour(date,7);
-            match[i] = new Journee(arbitre, i, true, date, equipe); 
+            if (i % 2 == 1) {
+                date = ajouterJour(date, 7);
+            }
+            match[i] = new Journee(arbitre, i, true, date);
             for (int j = 0; j < tmp.length; j++) {
                 for (int k = 0; k < tmp.length; k++) {
                     if (!tmp[j][k] && equipe.get(j).dispo(date) && equipe.get(k).dispo(date)) {//si match non joué
                         match[i].addConfrontation(equipe.get(j), equipe.get(k));//ajout confontation
-                        equipe.get(j).ajoutMatch(equipe.get(k), date);
-                        equipe.get(k).ajoutMatch(equipe.get(j), date);
+                        equipe.get(j).ajoutMatch(equipe.get(k), date, true);
+                        equipe.get(k).ajoutMatch(equipe.get(j), date,false);
                         tmp[j][k] = true;
                         tmp[k][j] = true;
                     }
@@ -52,28 +62,32 @@ class Groupe {
             }
 
         }
+        for (int i = 0; i < equipe.size(); i++) {
+            match[i+3]= new Journee(arbitre, i, true, date);
+        }
 
     }
-/**
-         * Ajouter jour a une date.
-         * 
-         * @param date
-         *            data actuel.
-         * @param nbJour
-         *            jour à ajouter
-         * 
-         *@return la date mise a jour;
-         */
+
+    /**
+     * Ajouter jour a une date.
+     *
+     * @param date data actuel.
+     * @param nbJour jour à ajouter
+     *
+     * @return la date mise a jour;
+     */
     public static Date ajouterJour(Date date, int nbJour) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.DATE, nbJour);
         return cal.getTime();
     }
-/**
-         * initialisation du tableau : true pour les equipe ayant deja joué l'une contre l'autre.
-         * 
-         */
+
+    /**
+     * initialisation du tableau : true pour les equipe ayant deja joué l'une
+     * contre l'autre.
+     *
+     */
     private boolean[][] initTab() {
         boolean tmp[][] = new boolean[equipe.size()][equipe.size()];
         for (int i = 0; i < equipe.size(); i++) {
@@ -90,7 +104,7 @@ class Groupe {
         for (int i = 0; i < equipe.size(); i++) {
             tmp = tmp + " " + equipe.get(i).getNom();
         }
-        return "Groupe "+ num + ", equipe=" + equipe + '}';
+        return "Groupe " + num + ", equipe=" + equipe + '}';
     }
 
 }

@@ -21,26 +21,40 @@ public class Equipe {
     private ArrayList<Match> match;
 
     public Equipe(String nom, String pays) {
-        this.match=new ArrayList();
+        this.match = new ArrayList();
         this.nom = nom;
         point = 0;
         this.pays = pays.toUpperCase();
         nbBut = 0;
     }
 
-
-
+    /**
+     * Verifie la disponibiliré d'une equipe.
+     *
+     * @param date date a verifier.
+     *
+     * @return true si l'equipe est disponible;
+     */
     boolean dispo(Date date) {
         boolean tmp = true;
-        for(int i=0;i<match.size();i++){
-            if(date.compareTo(match.get(i).getDate())==0)
-                tmp=false;
+        for (int i = 0; i < match.size(); i++) {
+            if (date.compareTo(match.get(i).getDate()) == 0) {
+                tmp = false;
+            }
         }
         return tmp;
     }
 
-    public void ajoutMatch(Equipe equipe, Date date) {
-        match.add(new Match(equipe,date));
+    /**
+     * Ajout d'un match pour cette equipe.
+     *
+     * @param date data du match.
+     * @param equipe equipe a jouer
+     * @param domicil true si domicil
+     *
+     */
+    public void ajoutMatch(Equipe equipe, Date date, boolean dom) {
+        match.add(new Match(equipe, date));
     }
 
     public void setPoint(int point) {
@@ -71,15 +85,15 @@ public class Equipe {
     public String toString() {
         return nom;
     }
-    
-        public class Match {
+
+    public class Match {
 
         Equipe equipe;
         Date date;
 
         public Match(Equipe equipe, Date date) {
-            this.equipe=equipe;
-            this.date=date;
+            this.equipe = equipe;
+            this.date = date;
         }
 
         public Equipe getEquipe() {
@@ -89,7 +103,7 @@ public class Equipe {
         public Date getDate() {
             return date;
         }
-        
+
     }
 
 }

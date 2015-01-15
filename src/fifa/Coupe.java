@@ -30,7 +30,9 @@ public class Coupe {
         System.out.println(arbitre.size());
         poule = new Poule(initEquipe(),arbitre);
     }
-
+/**
+         * Initialisation des equipe depuis le BD
+         */
     private ArrayList<Equipe> initEquipe() {//fonction qui recuper les donnée de la BD
         ArrayList<Equipe> tmp = new ArrayList();
         tmp.add(new Equipe("lapin","FrancE"));
@@ -43,7 +45,9 @@ public class Coupe {
         tmp.add(new Equipe("lapin7","coucou"));
         return tmp;
     }
-
+/**
+         * Initialisation depuis la BD des arbitres
+         */
     private ArrayList<Arbitre> initArbitre(){
         ArrayList<Arbitre> tmp=new ArrayList();
         
@@ -64,7 +68,11 @@ public class Coupe {
         
         return tmp;
     }
-    
+    /**
+         * Recuperer l'anné actuel
+         * 
+         *@return l'année actuel;
+         */
     private int getAnnee() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
         String dateStr = simpleDateFormat.format(new Date());
