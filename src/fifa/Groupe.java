@@ -19,7 +19,7 @@ class Groupe {
     private ArrayList<Equipe> equipe;
     private Journee[] match;
     private ArrayList<Arbitre> arbitre;
-    Date date = new Date(2014, 9, 15);
+    Date date = new Date(2015, 9, 15);
 
     public Groupe(ArrayList<Arbitre> arbitre, int num, ArrayList<Equipe> equipe) {
         this.num = num;
