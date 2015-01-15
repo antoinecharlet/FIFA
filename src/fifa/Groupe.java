@@ -15,11 +15,11 @@ import java.util.Date;
  */
 class Groupe {
 
-    private int num;
-    private ArrayList<Equipe> equipe;
-    private Journee[] match;
-    private ArrayList<Arbitre> arbitre;
-    Date date = new Date(2015, 9, 15);
+    private final int num;
+    private final ArrayList<Equipe> equipe;
+    private final Journee[] match;
+    private final ArrayList<Arbitre> arbitre;
+    Date date;
 
     /**
      * Ajouter d'un groupe
@@ -34,6 +34,7 @@ class Groupe {
         this.equipe = equipe;
         match = new Journee[(equipe.size()) * 2];
         this.arbitre = arbitre;
+        date = new Date(2015, 9, 15);
         initJournee();
     }
 
@@ -42,7 +43,6 @@ class Groupe {
      *
      */
     private void initJournee() {
-        System.out.println("  ");
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
         for (int i = 0; i < equipe.size(); i++) {//match allé  
             if (i % 2 == 1) {
@@ -61,16 +61,18 @@ class Groupe {
                 }
             }
 
-        }System.out.println("match retour");
+        }
+        date = new Date(2016, 2, 15);
         for (int i = 0; i < equipe.size(); i++) {// match retour 
             if (i % 2 == 1) {
                 date = ajouterJour(date, 7);
             }
-            match[i + 3] = new Journee(arbitre, i, false, date);
-            ArrayList<Confrontation> confron = match[3-i].getConfrontation();
-            //System.out.println(confron.size());
-            for (int j = 0; j < confron.size(); j++) {
-                match[i+3].addConfrontation(confron.get(j).getEquipeExt(), confron.get(j).getEquipeDom());
+            match[i + 4] = new Journee(arbitre, i, false, date);
+            ArrayList<Confrontation> confron = match[4 - (i + 1)].getConfrontation();
+            for (Confrontation confron1 : confron) {
+                match[i + 4].addConfrontation(confron1.getEquipeExt(), confron1.getEquipeDom());
+                confron1.getEquipeExt().ajoutMatch(confron1.getEquipeDom(), date, true);
+                confron1.getEquipeDom().ajoutMatch(confron1.getEquipeExt(), date, false);
             }
         }
 
@@ -109,8 +111,8 @@ class Groupe {
     @Override
     public String toString() {
         String tmp = "";
-        for (int i = 0; i < equipe.size(); i++) {
-            tmp = tmp + " " + equipe.get(i).getNom();
+        for (Equipe equipe1 : equipe) {
+            tmp = tmp + " " + equipe1.getNom();
         }
         return "Groupe " + num + ", equipe=" + equipe + '}';
     }
