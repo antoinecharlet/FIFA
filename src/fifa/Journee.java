@@ -25,7 +25,7 @@ public class Journee {
      *
      * @param date date de journée
      * @param arbitre liste des arbitres
-     * @parem num numero de journée
+     * @param num numero de journée
      * @param alle true si les matchs sont "allés"
      *
      */
@@ -55,13 +55,17 @@ public class Journee {
         }
     }
 
+    public ArrayList<Confrontation> getConfrontation() {
+        return confrontation;
+    }
+
     /**
      * Recherche un arbitre disponible pour cette rencontre
      *
      * @param e1 equipe dom
      * @param e2 equipe ext
      *
-     * @return Arbitre disponible
+     * @return  Arbitre disponible
      */
     private Arbitre getArbitre(Equipe e1, Equipe e2) {
         for (Arbitre arbitre1 : arbitre) {

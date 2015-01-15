@@ -11,7 +11,7 @@ package fifa;
  */
 class Confrontation {
     private final Arbitre arbitre;
-    private final Equipe equipeDom,equipeExt;//equipe 1 a domicile
+    private final Equipe equipeDom,equipeExt;
 
     public Confrontation(Equipe equipeDom, Equipe equipeExt,Arbitre arbitre) {
         this.equipeDom = equipeDom;
@@ -25,6 +25,10 @@ class Confrontation {
 
     public Equipe getEquipeExt() {
         return equipeExt;
+    }
+
+    public Arbitre getArbitre() {
+        return arbitre;
     }
 
     @Override

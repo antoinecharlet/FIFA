@@ -37,12 +37,12 @@ class Groupe {
         initJournee();
     }
 
-
     /**
      * Initialisation des rencontres
      *
      */
     private void initJournee() {
+        System.out.println("  ");
         boolean[][] tmp = initTab();//tableau 2d qui met a true les matchs joués entre deux equipes
         for (int i = 0; i < equipe.size(); i++) {//match allé  
             if (i % 2 == 1) {
@@ -54,16 +54,24 @@ class Groupe {
                     if (!tmp[j][k] && equipe.get(j).dispo(date) && equipe.get(k).dispo(date)) {//si match non joué
                         match[i].addConfrontation(equipe.get(j), equipe.get(k));//ajout confontation
                         equipe.get(j).ajoutMatch(equipe.get(k), date, true);
-                        equipe.get(k).ajoutMatch(equipe.get(j), date,false);
+                        equipe.get(k).ajoutMatch(equipe.get(j), date, false);
                         tmp[j][k] = true;
                         tmp[k][j] = true;
                     }
                 }
             }
 
-        }
-        for (int i = 0; i < equipe.size(); i++) {
-            match[i+3]= new Journee(arbitre, i, true, date);
+        }System.out.println("match retour");
+        for (int i = 0; i < equipe.size(); i++) {// match retour 
+            if (i % 2 == 1) {
+                date = ajouterJour(date, 7);
+            }
+            match[i + 3] = new Journee(arbitre, i, false, date);
+            ArrayList<Confrontation> confron = match[3-i].getConfrontation();
+            //System.out.println(confron.size());
+            for (int j = 0; j < confron.size(); j++) {
+                match[i+3].addConfrontation(confron.get(j).getEquipeExt(), confron.get(j).getEquipeDom());
+            }
         }
 
     }
