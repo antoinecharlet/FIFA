@@ -68,15 +68,15 @@ public class Journee {
             //les buts sont gnéré (random)
             int nbButDom = (int) (Math.random() * 3);
             int nbButExt = (int) (Math.random() * 3);
-            if (nbButDom > nbButExt) {
-                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 1, nbButDom);
-                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 0, nbButExt);
+            if (nbButDom > nbButExt) {//mise a jour des matchs pour les équipes
+                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 1, nbButDom,nbButExt);
+                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 0, nbButExt,nbButDom);
             } else if (nbButExt > nbButDom) {
-                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 1, nbButExt);
-                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 0, nbButDom);
+                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 1, nbButExt,nbButDom);
+                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 0, nbButDom,nbButExt);
             }else {
-                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 2, nbButExt);
-                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 2, nbButDom);
+                confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 2, nbButExt,nbButDom);
+                confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 2, nbButDom,nbButExt);
             }
             System.out.println(confron1.getEquipeDom()+" "+nbButDom+" - "+nbButExt+" "+confron1.getEquipeExt());
         };
@@ -90,6 +90,7 @@ public class Journee {
      *
      * @return Arbitre disponible
      */
+    
     private Arbitre getArbitre(Equipe e1, Equipe e2) {
         for (Arbitre arbitre1 : arbitre) {
             //parcours de tous les arbitres
@@ -114,6 +115,7 @@ public class Journee {
         System.out.println("pas d'arbitre disponible pour le : " + date);
         return null;
     }
+
 
     @Override
     public String toString() {

@@ -47,14 +47,26 @@ public class Coupe {
     }
 
     /**
-         * simulation des matchs de poules
+         * simulation des matchs de poules et mise a jour des match de qualification
          */
+    
     public void simulationPoule(){
         poule.simulation();
+
+        ArrayList<Equipe> qualifiees=new ArrayList();
+        ArrayList<Equipe> classement=new ArrayList();
+        for(Groupe groupe1:poule.getGroupe()){
+            classement=groupe1.getClassement();//ajout 1er et deuxieme classement
+            qualifiees.add(classement.get(0));
+            qualifiees.add(classement.get(1));
+        }
+        this.elimination=new EliminationDirect(qualifiees,arbitre);
     }
+    
     /**
          * Initialisation depuis la BD des arbitres
          */
+    
     private ArrayList<Arbitre> initArbitre(){
         ArrayList<Arbitre> tmp=new ArrayList();
         
@@ -75,11 +87,13 @@ public class Coupe {
         
         return tmp;
     }
+    
     /**
          * Recuperer l'anné actuel
          * 
          *@return l'année actuel;
          */
+    
     private int getAnnee() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
         String dateStr = simpleDateFormat.format(new Date());

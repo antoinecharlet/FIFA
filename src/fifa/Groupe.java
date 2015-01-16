@@ -7,6 +7,7 @@ package fifa;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -115,6 +116,11 @@ class Groupe {
         for (Journee match1 : match) {
             match1.simulation();
         }
+    }
+    
+    ArrayList<Equipe> getClassement(){
+        Collections.sort(equipe);
+        return equipe;
     }
 
     @Override

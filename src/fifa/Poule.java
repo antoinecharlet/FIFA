@@ -6,6 +6,8 @@
 package fifa;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -31,6 +33,12 @@ public class Poule {
         this.groupe = new ArrayList();
         initGroupe();
     }
+
+    public ArrayList<Groupe> getGroupe() {
+        return groupe;
+    }
+      
+    
 /**
      * simulation de tous les matchs de poule
      */
