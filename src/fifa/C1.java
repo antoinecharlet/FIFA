@@ -22,4 +22,27 @@ public class C1 extends Coupe{
         super();
     }
 
+    public ArrayList<Equipe> get3em(){
+        ArrayList<Equipe> troisieme=new ArrayList();
+        ArrayList<Equipe> classement=new ArrayList();
+        for(Groupe groupe1:poule.getGroupe()){
+            classement=groupe1.getClassement();//ajout 3em classement
+            troisieme.add(classement.get(2));
+        }
+        return troisieme;
+    }
+
+    @Override
+    public void simulationPoule() {
+        poule.simulation();
+
+        ArrayList<Equipe> qualifiees=new ArrayList();
+        ArrayList<Equipe> classement=new ArrayList();
+        for(Groupe groupe1:poule.getGroupe()){
+            classement=groupe1.getClassement();//ajout 1er et deuxieme classement
+            qualifiees.add(classement.get(0));
+            qualifiees.add(classement.get(1));
+        }
+        this.elimination=new EliminationDirect(qualifiees,arbitre);
+    }
 }

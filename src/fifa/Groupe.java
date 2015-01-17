@@ -40,7 +40,7 @@ class Groupe {
     }
 
     /**
-     * Initialisation des rencontres
+     * Initialisation des rencontres de tout le groupe
      *
      */
     private void initJournee() {

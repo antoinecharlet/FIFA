@@ -15,7 +15,7 @@ import java.util.Date;
  *
  * @author Olivier
  */
-public class Coupe {
+public abstract class Coupe {
 
     Poule poule;
     ArrayList<Arbitre> arbitre;
@@ -43,6 +43,9 @@ public class Coupe {
         tmp.add(new Equipe("lapin5","coucou"));
         tmp.add(new Equipe("lapin6","coucou"));
         tmp.add(new Equipe("lapin7","coucou"));
+        for(int i=0;i<8;i++){
+            tmp.add(new Equipe("lapin"+(i+8),"coucou"));
+        }
         return tmp;
     }
 
@@ -50,19 +53,11 @@ public class Coupe {
          * simulation des matchs de poules et mise a jour des match de qualification
          */
     
-    public void simulationPoule(){
-        poule.simulation();
-
-        ArrayList<Equipe> qualifiees=new ArrayList();
-        ArrayList<Equipe> classement=new ArrayList();
-        for(Groupe groupe1:poule.getGroupe()){
-            classement=groupe1.getClassement();//ajout 1er et deuxieme classement
-            qualifiees.add(classement.get(0));
-            qualifiees.add(classement.get(1));
-        }
-        this.elimination=new EliminationDirect(qualifiees,arbitre);
-    }
+    public abstract void simulationPoule();
     
+    public void simulTour(){
+        this.elimination.simulationTour();
+    }
     /**
          * Initialisation depuis la BD des arbitres
          */

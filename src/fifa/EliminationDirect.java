@@ -15,21 +15,25 @@ import java.util.ArrayList;
 public class EliminationDirect {
     ArrayList<Equipe> equipe;
     ArrayList<Arbitre>arbitre;
-    ArrayList<Journee>match;
-    private int tour;
+    ArrayList<Tour>tour;
+    private int numTour;
+
 
     public EliminationDirect(ArrayList<Equipe>equipe,ArrayList<Arbitre>arbitre) {
         this.equipe=equipe;
-        tour=(int) Math.sqrt((double)equipe.size());
-        this.arbitre=arbitre;
-        creation1erTour();
+        numTour=(int) Math.sqrt((double)equipe.size());
+        this.arbitre=arbitre; 
+        tour=new ArrayList();
+        tour.add(new Tour(numTour,arbitre,equipe));
     }
-    
-    private void creation1erTour(){
-        for(int i=0;i<tour;i++){
-            
-        }
+
+    public void simulationTour(){
+        equipe=tour.get(tour.size()-1).simulationMatch();
+        if(equipe.size()>2)
+            numTour=(int) Math.sqrt((double)equipe.size());
+        else 
+            System.out.println("Final "+equipe.get(0)+" "+equipe.get(1));
+        tour.add(new Tour(numTour,arbitre,equipe));
     }
-    
     
 }

@@ -14,11 +14,11 @@ import java.util.Date;
  */
 public class Journee {
 
-    private final int num;
-    private final Date date;
-    private final boolean alle;
-    private final ArrayList<Arbitre> arbitre;
-    private final ArrayList<Confrontation> confrontation;
+    protected final int num;
+    protected  Date date;
+    protected final boolean alle;
+    protected final ArrayList<Arbitre> arbitre;
+    protected final ArrayList<Confrontation> confrontation;
 
     /**
      * Ajouter journée.
@@ -68,6 +68,7 @@ public class Journee {
             //les buts sont gnéré (random)
             int nbButDom = (int) (Math.random() * 3);
             int nbButExt = (int) (Math.random() * 3);
+            confron1.setScore(nbButDom,nbButExt);
             if (nbButDom > nbButExt) {//mise a jour des matchs pour les équipes
                 confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 1, nbButDom,nbButExt);
                 confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 0, nbButExt,nbButDom);
