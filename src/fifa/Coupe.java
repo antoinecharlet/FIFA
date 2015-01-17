@@ -43,9 +43,6 @@ public abstract class Coupe {
         tmp.add(new Equipe("lapin5","coucou"));
         tmp.add(new Equipe("lapin6","coucou"));
         tmp.add(new Equipe("lapin7","coucou"));
-        for(int i=0;i<8;i++){
-            tmp.add(new Equipe("lapin"+(i+8),"coucou"));
-        }
         return tmp;
     }
 
@@ -54,6 +51,10 @@ public abstract class Coupe {
          */
     
     public abstract void simulationPoule();
+
+    public Poule getPoule() {
+        return poule;
+    }
     
     public void simulTour(){
         this.elimination.simulationTour();

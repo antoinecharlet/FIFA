@@ -15,10 +15,10 @@ import java.util.Collections;
  */
 public class Poule {
 
-    ArrayList<Groupe> groupe;
-    ArrayList<Equipe> equipe;
-    ArrayList<Arbitre> arbitre;
-    int nbGroup;
+    private final ArrayList<Groupe> groupe;
+    private final ArrayList<Equipe> equipe;
+    private final ArrayList<Arbitre> arbitre;
+    private int nbGroup;
 
     /**
      * ajout d'une poule de plusieurs equipes
@@ -33,7 +33,10 @@ public class Poule {
         this.groupe = new ArrayList();
         initGroupe();
     }
-
+/**
+ * 
+ * @return tableau des groupes
+ */
     public ArrayList<Groupe> getGroupe() {
         return groupe;
     }

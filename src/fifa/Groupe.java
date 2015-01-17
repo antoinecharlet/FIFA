@@ -14,22 +14,15 @@ import java.util.Date;
  *
  * @author antoine
  */
-class Groupe {
+public class Groupe {
 
     private final int num;
     private final ArrayList<Equipe> equipe;
     private final Journee[] match;
     private final ArrayList<Arbitre> arbitre;
-    Date date;
+    private Date date;
 
-    /**
-     * Ajouter d'un groupe
-     *
-     * @paramarbitre liste des arbitres
-     * @param num numero de groupe
-     * @param equipe equipe du groupe
-     *
-     */
+
     public Groupe(ArrayList<Arbitre> arbitre, int num, ArrayList<Equipe> equipe) {
         this.num = num;
         this.equipe = equipe;
@@ -112,14 +105,18 @@ class Groupe {
      * Simulation de tous les matchs du groupe
      *
      */
-    void simulationMatchs(){
+    public void simulationMatchs(){
         for (Journee match1 : match) {
             match1.simulation();
         }
     }
     
-    ArrayList<Equipe> getClassement(){
+    public ArrayList<Equipe> getClassement(){
         Collections.sort(equipe);
+        return equipe;
+    }
+
+    public ArrayList<Equipe> getEquipe() {
         return equipe;
     }
 

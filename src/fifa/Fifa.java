@@ -5,6 +5,7 @@
  */
 package fifa;
 
+import Vue.test;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +23,8 @@ public class Fifa {
     public static void main(String[] args) {
         // TODO code application logic here
         Coupe c=new C1();
-        c.simulationPoule();       
+        test t=new test(c);
+        t.setVisible(true);
     }
 
 }
