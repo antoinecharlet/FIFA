@@ -21,6 +21,10 @@ public abstract class Coupe {
     ArrayList<Arbitre> arbitre;
     EliminationDirect elimination;
     Barrage barrage;
+
+    public EliminationDirect getElimination() {
+        return elimination;
+    }
     ArrayList<Equipe> equipe;
     final int annee;
 

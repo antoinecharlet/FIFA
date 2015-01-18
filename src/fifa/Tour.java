@@ -26,6 +26,14 @@ public class Tour {
         this.duel=new ArrayList();
         initDuel();
     }
+
+    public int getNumTour() {
+        return numTour;
+    }
+
+    public ArrayList<Duel> getDuel() {
+        return duel;
+    }
     
     public ArrayList<Equipe> simulationMatch(){
         ArrayList<Equipe> tmp = new ArrayList();

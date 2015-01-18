@@ -26,6 +26,10 @@ public class EliminationDirect {
         tour=new ArrayList();
         tour.add(new Tour(numTour,arbitre,equipe));
     }
+    
+    public ArrayList<Tour> getTour(){
+        return tour;
+    }
 
     public void simulationTour(){
         equipe=tour.get(tour.size()-1).simulationMatch();

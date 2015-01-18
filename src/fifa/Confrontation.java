@@ -9,7 +9,7 @@ package fifa;
  *
  * @author antoine
  */
-class Confrontation {
+public class Confrontation {
     private final Arbitre arbitre;
     private final Equipe equipeDom,equipeExt;
     private int scoreDom,scoreExt;

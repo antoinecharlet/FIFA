@@ -20,6 +20,22 @@ public class Duel {
     Date date;
     Equipe e1, e2;
 
+    public Confrontation getC1() {
+        return c1;
+    }
+
+    public Confrontation getC2() {
+        return c2;
+    }
+
+    public Equipe getE1() {
+        return e1;
+    }
+
+    public Equipe getE2() {
+        return e2;
+    }
+
     public Duel(ArrayList<Arbitre> arbitre, Equipe e1, Equipe e2, Date date) {
         this.arbitre = arbitre;
         this.e1 = e1;
