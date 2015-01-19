@@ -6,6 +6,7 @@
 package Vue;
 
 import fifa.Duel;
+import java.awt.Color;
 import javax.swing.border.TitledBorder;
 
 /**
@@ -15,8 +16,10 @@ import javax.swing.border.TitledBorder;
 public class VueMatch extends javax.swing.JPanel {
 
     Duel duel;
+
     /**
-     * Creates new form VueMatch
+     * 
+     * @param duel envoie le duel a acheter
      */
     public VueMatch(Duel duel) {
         this.duel=duel;
@@ -44,16 +47,24 @@ public class VueMatch extends javax.swing.JPanel {
 
         int tmp=duel.getC1().getScoreDom()+duel.getC2().getScoreExt();
         String text;
-        if(tmp>=0)
-        text=String.valueOf(tmp)+" ("+duel.getC1().getScoreDom()+")";
-        else
+        if(tmp>=0){
+            text=String.valueOf(tmp)+" ("+duel.getC1().getScoreDom()+")";
+            if(duel.getGagnant().equals(duel.getE1())){
+                score1.setForeground(new Color(0,255,0));
+            }else
+            score1.setForeground(new Color(255,0,0));
+        }else
         text=" - ";
         score1.setText(text);
 
         tmp=duel.getC2().getScoreDom()+duel.getC1().getScoreExt();
-        if(tmp>=0)
-        text=String.valueOf(tmp)+" ("+duel.getC1().getScoreExt()+")";
-        else
+        if(tmp>=0){
+            text=String.valueOf(tmp)+" ("+duel.getC1().getScoreExt()+")";
+            if(duel.getGagnant().equals(duel.getE2()))
+            score2.setForeground(new Color(0,255,0));
+            else
+            score2.setForeground(new Color(255,0,0));
+        }else
         text=" - ";
         score2.setText(text);
 

@@ -27,8 +27,11 @@ public class Fifa {
         c.simulationPoule();
         c.simulTour();
         c.simulTour();
+        c.simulTour();
+        test nt=new test(c);
         Elimination  t=new Elimination(c.getElimination());
         t.setVisible(true);
+        nt.setVisible(true);
     }
 
 }

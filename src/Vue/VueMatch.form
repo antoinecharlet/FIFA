@@ -74,7 +74,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="int tmp=duel.getC1().getScoreDom()+duel.getC2().getScoreExt();&#xa;String text;&#xa;if(tmp&gt;=0)&#xa;    text=String.valueOf(tmp)+&quot; (&quot;+duel.getC1().getScoreDom()+&quot;)&quot;;&#xa;else &#xa;text=&quot; - &quot;;"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="int tmp=duel.getC1().getScoreDom()+duel.getC2().getScoreExt();&#xa;String text;&#xa;if(tmp&gt;=0){&#xa;    text=String.valueOf(tmp)+&quot; (&quot;+duel.getC1().getScoreDom()+&quot;)&quot;;&#xa;if(duel.getGagnant().equals(duel.getE1())){&#xa;score1.setForeground(new Color(0,255,0));&#xa;}else&#xa;score1.setForeground(new Color(255,0,0));&#xa;}else &#xa;text=&quot; - &quot;;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="score2">
@@ -84,7 +84,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tmp=duel.getC2().getScoreDom()+duel.getC1().getScoreExt();&#xa;if(tmp&gt;=0)&#xa;    text=String.valueOf(tmp)+&quot; (&quot;+duel.getC1().getScoreExt()+&quot;)&quot;;&#xa;else &#xa;text=&quot; - &quot;;"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tmp=duel.getC2().getScoreDom()+duel.getC1().getScoreExt();&#xa;if(tmp&gt;=0){&#xa;    text=String.valueOf(tmp)+&quot; (&quot;+duel.getC1().getScoreExt()+&quot;)&quot;;&#xa;    if(duel.getGagnant().equals(duel.getE2()))&#xa;score2.setForeground(new Color(0,255,0));&#xa;else&#xa;score2.setForeground(new Color(255,0,0));&#xa;}else &#xa;text=&quot; - &quot;;"/>
       </AuxValues>
     </Component>
   </SubComponents>

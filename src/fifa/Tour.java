@@ -18,7 +18,12 @@ public class Tour {
     private ArrayList<Arbitre>arbitre;
     private ArrayList<Equipe>equipe;
     private ArrayList<Duel>duel;
-
+/**
+ * 
+ * @param numTour numero du tour actuel
+ * @param arbitre liste arbitre
+ * @param equipe Liste equipe qualifée
+ */
     public Tour(int numTour, ArrayList<Arbitre> arbitre, ArrayList<Equipe> equipe) {
         this.numTour = numTour;
         this.arbitre = arbitre;
@@ -34,7 +39,11 @@ public class Tour {
     public ArrayList<Duel> getDuel() {
         return duel;
     }
-    
+    /**
+     * Simulation des match du tour actuel
+     * 
+     * @return les Equipes ayant gagné leur dernier match
+     */
     public ArrayList<Equipe> simulationMatch(){
         ArrayList<Equipe> tmp = new ArrayList();
         for(Duel duel1:duel){

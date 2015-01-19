@@ -12,7 +12,9 @@ import java.util.Scanner;
 
 public class ConnexionBDarbitre {
     private static Connection connect = null;
-
+/**
+ * connection a la Bd 
+ */
     private ConnexionBDarbitre() {
         if (connect == null) {
             try {
@@ -25,7 +27,10 @@ public class ConnexionBDarbitre {
             }
         }
     }
-
+/**
+ * 
+ * @return la connextion
+ */
     public static Connection getConnexion() {
         if (connect==null){
             new ConnexionBDarbitre();

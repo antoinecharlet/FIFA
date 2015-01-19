@@ -8,10 +8,6 @@ package fifa;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author Olivier
- */
 public class Equipe implements java.lang.Comparable {
 
     private final String nom;
@@ -20,6 +16,11 @@ public class Equipe implements java.lang.Comparable {
     private final String pays;
     private ArrayList<Match> match;
 
+    /**
+     *
+     * @param nom nom
+     * @param pays Pays
+     */
     public Equipe(String nom, String pays) {
         this.match = new ArrayList();
         this.nom = nom;
@@ -49,9 +50,9 @@ public class Equipe implements java.lang.Comparable {
      * Mise a jour du score d'un match pour cette equipe.
      *
      * @param e equipe joué.
-     * @param victoire1 victoire ,2 null,0 defaite
+     * @param victoire victoire ,2 null,0 defaite
      * @param nbBut nombre de but marqué
-     * @param nbButContre
+     * @param nbButContre nb de but pris
      */
     public void setMatch(Equipe e, int victoire, int nbBut, int nbButContre) {
         match.get(match.indexOf(e) + 1).setVictoire(victoire);
@@ -69,12 +70,11 @@ public class Equipe implements java.lang.Comparable {
     }
 
     /**
-     * Ajout d'un match pour cette equipe.
+     * ajout d'un match pour cette equipe
      *
-     * @param date data du match.
-     * @param equipe equipe a jouer
-     * @param domicil true si domicil
-     *
+     * @param equipe equipe adverse
+     * @param date date du match
+     * @param dom true si a domicil
      */
     public void ajoutMatch(Equipe equipe, Date date, boolean dom) {
         match.add(new Match(equipe, date));
@@ -108,6 +108,10 @@ public class Equipe implements java.lang.Comparable {
         return point;
     }
 
+    /**
+     *
+     * @return Nb but pour - nb But contre
+     */
     public int getDiffBut() {
         return nbButPour - nbButContre;
     }
@@ -160,6 +164,11 @@ public class Equipe implements java.lang.Comparable {
         //0 defaite
         //2 null
 
+        /**
+         *
+         * @param equipe equipe adverse
+         * @param date date du match
+         */
         public Match(Equipe equipe, Date date) {
             this.equipe = equipe;
             this.date = date;
@@ -173,6 +182,10 @@ public class Equipe implements java.lang.Comparable {
             return butContre;
         }
 
+        /**
+         *
+         * @return trus si gagné
+         */
         public int getVictoire() {
             return victoire;
         }

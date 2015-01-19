@@ -46,7 +46,11 @@ public class Confrontation {
     public int getScoreExt() {
         return scoreExt;
     }
-
+/**
+ * 
+ * @param dom score domicil
+ * @param ext score exterieur
+ */
     public void setScore(int dom,int ext){
         this.scoreDom=dom;
         this.scoreExt=ext;

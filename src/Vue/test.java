@@ -29,15 +29,20 @@ public class test extends JFrame {
     private Coupe c;
     private JTable table;
     private int numGrp;
-
+/**
+ * 
+ * @param c coupe
+ */
     public test(Coupe c) {
         this.c = c;
-        c.simulationPoule();
         table = initab();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
     }
-
+/**
+ * 
+ * @return Jtable du classement
+ */
     JTable initab() {
         ArrayList<Equipe> equipe;
         equipe = c.getPoule().getGroupe().get(numGrp).getEquipe();
@@ -80,7 +85,9 @@ public class test extends JFrame {
             init();
         }
     }
-
+/**
+ * initialisation de la vue
+ */
     void init() {
         JScrollPane scroll = new JScrollPane(table);
         JPanel pano = new JPanel();

@@ -20,23 +20,28 @@ import javax.swing.JPanel;
 public class Elimination extends JFrame {
 
     EliminationDirect elim;
-
+/**
+ * 
+ * @param elim equipe qualifie 
+ */
     public Elimination(EliminationDirect elim) {
         this.elim = elim;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
     }
-
+/**
+ * initialisation de la vue
+ */
     private void init() {
         JPanel pano = new JPanel();
         pano.setLayout(new GridBagLayout());
         GridBagConstraints cont = new GridBagConstraints();
         cont.fill = GridBagConstraints.BOTH;
         for (int t = 0; t < elim.getTour().size(); t++) {
-            int i=0;
+            int i = 0;
             for (Duel duel : elim.getTour().get(t).getDuel()) {
-                cont.gridx = t*1;
-                cont.gridy = i*1;
+                cont.gridx = t;               
+                cont.gridy = i;
                 pano.add(new VueMatch(duel), cont);
                 i++;
             }

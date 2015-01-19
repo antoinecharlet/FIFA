@@ -35,7 +35,13 @@ public class Duel {
     public Equipe getE2() {
         return e2;
     }
-
+/**
+ * 
+ * @param arbitre Liste arbitre
+ * @param e1 equipe 1
+ * @param e2 equipe 2
+ * @param date date de premier match
+ */
     public Duel(ArrayList<Arbitre> arbitre, Equipe e1, Equipe e2, Date date) {
         this.arbitre = arbitre;
         this.e1 = e1;
@@ -52,9 +58,12 @@ public class Duel {
         date = ajouterJour(date, 7);
         c2 = new Confrontation(e2, e1, getArbitre(e1, e2));
     }
-
+    /**
+     * fonction de simulation des matchs
+     * @return l'équipe gagnante (les deux matchs jouée)
+     */
     public Equipe getGagnant() {
-
+        if(c1.getScoreDom()==-1){
         //premier match
         int nbButDom = (int) (Math.random() * 3);
         int nbButExt = (int) (Math.random() * 3);
@@ -63,7 +72,7 @@ public class Duel {
         nbButDom = (int) (Math.random() * 3);
         nbButExt = (int) (Math.random() * 3);
         c2.setScore(nbButDom, nbButExt);
-
+        }
         //si e1 gagne premier match
         if (c1.domWin() == 1) {
             if (c2.domWin() == -1) {

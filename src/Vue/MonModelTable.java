@@ -5,7 +5,6 @@
 package Vue;
 
 import java.util.ArrayList;
-import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -62,7 +61,13 @@ public class MonModelTable extends DefaultTableModel {
     public String getColumnName(int column) {
         return entetes[column];
     }
-
+/**
+ * ajouter une ligne dans le tableau
+ * @param nom nom
+ * @param point point
+ * @param nbButPour But pour
+ * @param nbButContre But contre
+ */
     public void addLigne(String nom,int point, int nbButPour, int nbButContre) {
         addLigne(new Ligne(nom,point,nbButPour,nbButContre));
     }
@@ -71,7 +76,10 @@ public class MonModelTable extends DefaultTableModel {
         liste.add(l);
         fireTableRowsInserted(liste.size() - 1, liste.size() - 1);
     }
-
+/**
+ * supression de la ligne 
+ * @param index index de la ligne a suprimmer
+ */
     public void removeLigne(int index) {
         liste.remove(index);
         fireTableRowsDeleted(index, index);

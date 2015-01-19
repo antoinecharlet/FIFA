@@ -20,14 +20,16 @@ public abstract class Coupe {
     Poule poule;
     ArrayList<Arbitre> arbitre;
     EliminationDirect elimination;
-    Barrage barrage;
+    ArrayList<Equipe> equipe;
+    final int annee;
 
     public EliminationDirect getElimination() {
         return elimination;
     }
-    ArrayList<Equipe> equipe;
-    final int annee;
-
+    
+/**
+ * 
+ */
     public Coupe() {
         this.annee = getAnnee();
         arbitre=initArbitre();
@@ -47,6 +49,9 @@ public abstract class Coupe {
         tmp.add(new Equipe("lapin5","coucou"));
         tmp.add(new Equipe("lapin6","coucou"));
         tmp.add(new Equipe("lapin7","coucou"));
+        for(int i=0;i<8;i++){
+            tmp.add(new Equipe("lapin"+(8+i),"coucou"));
+        }
         return tmp;
     }
 
@@ -59,7 +64,9 @@ public abstract class Coupe {
     public Poule getPoule() {
         return poule;
     }
-    
+    /**
+     * Simulation d'un tour de coupe
+     */
     public void simulTour(){
         this.elimination.simulationTour();
     }

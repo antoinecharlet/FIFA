@@ -21,7 +21,10 @@ public class C1 extends Coupe{
     public C1() {
         super();
     }
-
+/**
+ * 
+ * @return liste des Equipes qui ont finit 3em de grp
+ */
     public ArrayList<Equipe> get3em(){
         ArrayList<Equipe> troisieme=new ArrayList();
         ArrayList<Equipe> classement=new ArrayList();
