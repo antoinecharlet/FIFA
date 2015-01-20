@@ -6,6 +6,7 @@
 package fifa;
 
 import Vue.Elimination;
+import Vue.Fenetre;
 import Vue.test;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,14 +25,17 @@ public class Fifa {
     public static void main(String[] args) {
         // TODO code application logic here
         Coupe c=new C1();
-        c.simulationPoule();
-        c.simulTour();
-        c.simulTour();
-        c.simulTour();
-        test nt=new test(c);
-        Elimination  t=new Elimination(c.getElimination());
-        t.setVisible(true);
-        nt.setVisible(true);
+        Fenetre fe=new Fenetre(c);
+        fe.setVisible(true);
+//        
+//        c.simulationPoule();
+//        c.simulTour();
+//        c.simulTour();
+//        c.simulTour();
+//        test nt=new test(c);
+//        Elimination  t=new Elimination(c.getElimination());
+//        t.setVisible(true);
+//        nt.setVisible(true);
     }
 
 }

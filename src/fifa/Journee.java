@@ -79,7 +79,6 @@ public class Journee {
                 confron1.getEquipeExt().setMatch(confron1.getEquipeDom(), 2, nbButExt,nbButDom);
                 confron1.getEquipeDom().setMatch(confron1.getEquipeExt(), 2, nbButDom,nbButExt);
             }
-            System.out.println(confron1.getEquipeDom()+" "+nbButDom+" - "+nbButExt+" "+confron1.getEquipeExt());
         };
     }
 
