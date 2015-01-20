@@ -29,6 +29,11 @@ public class EliminationDirect {
         tour = new ArrayList();
         tour.add(new Tour(numTour, arbitre, equipe));
     }
+
+    public ArrayList<Equipe> getEquipe() {
+        return equipe;
+    }
+    
 /**
  * Simulaition de tous les matchs du tour actuel
  */

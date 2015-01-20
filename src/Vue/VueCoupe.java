@@ -6,13 +6,19 @@
 package Vue;
 
 import fifa.Coupe;
+import fifa.Duel;
+import fifa.EliminationDirect;
 import fifa.Equipe;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -62,12 +68,51 @@ public abstract class VueCoupe extends JInternalFrame {
             }
         });
         this.simulation.addActionListener((ActionEvent ae) -> {
-            c.simulationPoule();
-            init();
-            this.pack();
-            this.setVisible(true);
+            if (simulation.getText().equals("Simulation Matchs")) {
+                c.simulationPoule();
+                init();
+                this.pack();
+                this.setVisible(true);
+                simulation.setText("Jouer Tour");
+            } else if(c.getElimination().getEquipe().size()>1){
+                c.simulTour();
+                initTour();
+                this.pack();
+                this.setVisible(true);
+            }else {
+                JOptionPane.showMessageDialog(this,
+                "Le gagnant est "+c.getElimination().getEquipe().get(0),
+                "Inane error",
+                JOptionPane.INFORMATION_MESSAGE);
+            }
         });
 
+    }
+/**
+ * initialisation de l'affichage des tour 
+ */
+    private void initTour() {
+        EliminationDirect elim = c.getElimination();
+        JPanel pano = new JPanel();
+        pano.setLayout(new GridBagLayout());
+        GridBagConstraints cont = new GridBagConstraints();
+        cont.fill = GridBagConstraints.BOTH;
+        JLabel tour=new JLabel();
+        for (int t = 0; t < elim.getTour().size(); t++) {
+            int i = 1;
+            for (Duel duel : elim.getTour().get(t).getDuel()) {
+                cont.gridx = t;
+                cont.gridy = i;
+                pano.add(new VueMatch(duel), cont);
+                i++;
+            }
+        }
+        cont.gridy=0;
+        cont.gridx=0;
+        cont.gridwidth=elim.getTour().size();
+        pano.add(this.simulation,cont);
+        
+        this.setContentPane(pano);
     }
 
     /**
