@@ -51,4 +51,25 @@ boolean pouleJoue=false;
             pouleJoue=true;
         }
     }
+
+    @Override
+    ArrayList<Equipe> initEquipe() {
+         {//fonction qui recuper les donnée de la BD
+        ArrayList<Equipe> tmp = new ArrayList();
+        tmp.add(new Equipe("lapin", "FrancE"));
+        tmp.add(new Equipe("lapin1", ""));
+        tmp.add(new Equipe("lapin2", "cou4cou"));
+        tmp.add(new Equipe("lapin3", "couco4u"));
+        tmp.add(new Equipe("lapin4", "coucou"));
+        tmp.add(new Equipe("lapin5", "coucou"));
+        tmp.add(new Equipe("lapin6", "coucou"));
+        tmp.add(new Equipe("lapin7", "coucou"));
+        for (int i = 0; i < 8; i++) {
+            tmp.add(new Equipe("lapin" + (8 + i), "coucou"));
+        }
+        equipe = tmp;
+        return tmp;
+    }
+
+    }
 }

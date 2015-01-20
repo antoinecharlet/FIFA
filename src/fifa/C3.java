@@ -20,6 +20,7 @@ public class C3 extends Coupe {
         this.c1 = c1;
     }
 
+    
     @Override
     public void simulationPoule() {
 
@@ -39,5 +40,25 @@ public class C3 extends Coupe {
             this.elimination = new EliminationDirect(qualifiees, arbitre);
             pouleJoue=true;
         }
+    }
+
+    @Override
+    ArrayList<Equipe> initEquipe() {
+        {//fonction qui recuper les donnée de la BD
+        ArrayList<Equipe> tmp = new ArrayList();
+        tmp.add(new Equipe("poule", "FrancE"));
+        tmp.add(new Equipe("poule1", ""));
+        tmp.add(new Equipe("poule2", "cou4cou"));
+        tmp.add(new Equipe("poule3", "couco4u"));
+        tmp.add(new Equipe("poule4", "coucou"));
+        tmp.add(new Equipe("poule5", "coucou"));
+        tmp.add(new Equipe("poule6", "coucou"));
+        tmp.add(new Equipe("poule7", "coucou"));
+        for (int i = 0; i < 8; i++) {
+            tmp.add(new Equipe("poule" + (8 + i), "coucou"));
+        }
+        equipe = tmp;
+        return tmp;
+    }
     }
 }
