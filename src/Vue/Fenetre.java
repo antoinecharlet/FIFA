@@ -52,7 +52,7 @@ public class Fenetre extends JFrame implements ActionListener{
         ajoutEquipe=new JMenuItem("Ajout Equipe");
         ajoutArbitre=new JMenuItem("Ajout Arbitre");
         this.LancerC1=new JMenuItem("Lancer C1");
-        this.LancerC2=new JMenuItem("Lancer C2");
+        this.LancerC2=new JMenuItem("Lancer C3");
         coupe.add(LancerC1);
         coupe.add(LancerC2);
         menuBar.add(coupe);

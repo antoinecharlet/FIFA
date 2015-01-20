@@ -20,6 +20,14 @@ public class C3 extends Coupe {
         this.c1 = c1;
     }
 
+
+    @Override
+    public void simulTour() {
+        if(!c1.isPouleJoue()){
+            c1.simulationPoule();
+        }
+        super.simulTour(); //To change body of generated methods, choose Tools | Templates.
+    }
     
     @Override
     public void simulationPoule() {

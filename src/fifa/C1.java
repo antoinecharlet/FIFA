@@ -34,6 +34,9 @@ boolean pouleJoue=false;
         return troisieme;
     }
 
+    public boolean isPouleJoue() {
+        return pouleJoue;
+    }
     @Override
     public void simulationPoule() {
 

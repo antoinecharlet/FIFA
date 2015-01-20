@@ -10,6 +10,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -25,7 +26,7 @@ public class VueC3 extends VueCoupe {
 
     @Override
     void init() {
-        this.setTitle("Coupe C2");
+        this.setTitle("Coupe C3");
         JPanel pano = new JPanel();
 
         pano.setLayout(new GridBagLayout());
@@ -50,10 +51,11 @@ public class VueC3 extends VueCoupe {
         cont.gridy=2;
         pano.add(this.simulation,cont);
         
+        JScrollPane scroll=new JScrollPane(table);
         cont.gridx=0;
         cont.gridy=0;
         cont.gridwidth=2;
-        pano.add(table,cont);
+        pano.add(scroll,cont);
         
         
         
