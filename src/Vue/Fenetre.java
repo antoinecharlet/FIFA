@@ -25,7 +25,7 @@ public class Fenetre extends JFrame implements ActionListener{
     private JMenuBar menuBar;
     private JMenu edit,coupe;
     private JMenuItem ajoutEquipe,ajoutArbitre,LancerC1,LancerC2;
-    private JInternalFrame fen=new JInternalFrame();
+    private JInternalFrame fen=new Acceuil();
 
     public Fenetre(Coupe c) {
         this.c = c;
@@ -56,7 +56,6 @@ public class Fenetre extends JFrame implements ActionListener{
         ajoutArbitre.addActionListener(this);
         this.LancerC1.addActionListener(this);
         this.LancerC2.addActionListener(this);
-        this.add(new JLabel(new ImageIcon("FIFA.png")));
         this.pack();
     }
 

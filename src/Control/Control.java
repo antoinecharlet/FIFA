@@ -15,7 +15,7 @@ import fifa.Equipe;
  */
 public class Control {
 /**
- * 
+ * controle ajout d'équipe
  * @param c coupe
  * @param nom nom
  * @param pays pays
@@ -28,7 +28,7 @@ public class Control {
 
     }
     /**
-     * 
+     * controle ajout Arbitre
      * @param c coupe
      * @param prenom prenom
      * @param nom nom

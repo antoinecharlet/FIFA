@@ -36,7 +36,7 @@ public class Duel {
         return e2;
     }
 /**
- * 
+ * Deux matchs joué entre deux equipes
  * @param arbitre Liste arbitre
  * @param e1 equipe 1
  * @param e2 equipe 2
@@ -51,7 +51,7 @@ public class Duel {
     }
 
     /**
-     * initialisation Confrontation
+     * initialisation des confrontations
      */
     private void initConfrontation() {
         c1 = new Confrontation(e1, e2, getArbitre(e1, e2));
@@ -111,7 +111,7 @@ public class Duel {
         }
     }
 /**
- * 
+ * calcule le gagnant de deux matchs en fonction de la difference de but
  * @return gangant des deux match cumulé en fonction de difference de but 
  */
     private Equipe gagnantDiffBut() {
