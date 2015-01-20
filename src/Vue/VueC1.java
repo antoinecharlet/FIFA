@@ -20,20 +20,42 @@ public class VueC1 extends VueCoupe {
     
     public VueC1(Coupe c) {
         super(c);
+        init();
     }
 
     @Override
     void init() {
         this.setTitle("Coupe C1");
-         JPanel pano = new JPanel();
+        JPanel pano = new JPanel();
 
         pano.setLayout(new GridBagLayout());
         GridBagConstraints cont = new GridBagConstraints();
         cont.fill = GridBagConstraints.BOTH;
         table=initTable();
+        
+        
+        cont.gridx=1;
+        cont.gridy=1;
+        pano.add(next,cont);
+        
+        cont.gridx=0;
+        cont.gridy=1;
+        pano.add(last,cont);
+        
+        cont.gridx=0;
+        cont.gridy=2;
+        pano.add(grp,cont);
+        
+        cont.gridx=1;
+        cont.gridy=2;
+        pano.add(this.simulation,cont);
+        
         cont.gridx=0;
         cont.gridy=0;
+        cont.gridwidth=2;
         pano.add(table,cont);
+        
+        
         
         this.setContentPane(pano);
         this.pack();

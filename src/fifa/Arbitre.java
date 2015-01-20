@@ -39,22 +39,42 @@ public class Arbitre {
         calendrier.add(date);
     }
     
+    /**
+     *
+     * @return calendrier
+     */
     public ArrayList<Date> getCalendrier(){
         return calendrier;
     }
 
+    /**
+     *
+     * @return nom
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     *
+     * @return prenom
+     */
     public String getPrenom() {
         return prenom;
     }
 
+    /**
+     *
+     * @return pays
+     */
     public String getPays() {
         return pays;
     }
 
+    /**
+     *
+     * @return Affichage
+     */
     @Override
     public String toString() {
         return nom + " "+ prenom + " " + id ;
