@@ -58,14 +58,12 @@ boolean pouleJoue=false;
     @Override
     ArrayList<Equipe> initEquipe() {
          {//fonction qui recuper les donnée de la BD
-        ArrayList<Equipe> tmp = new ArrayList();
-        
+        ArrayList<Equipe> tmp = new ArrayList();  
         for (int i = 0; i < 16; i++) {
-            tmp.add(new Equipe("lapin" + (8 + i), "coucou"));
+            tmp.add(new Equipe("lapin"+i, "coucou"));
         }
         equipe = tmp;
         return tmp;
     }
-
     }
 }
