@@ -74,44 +74,47 @@ public abstract class VueCoupe extends JInternalFrame {
                 this.pack();
                 this.setVisible(true);
                 simulation.setText("Jouer Tour");
-            } else if(c.getElimination().getEquipe().size()>1){
+            } else if (c.getElimination().getEquipe().size() > 1) {
                 c.simulTour();
                 initTour();
                 this.pack();
                 this.setVisible(true);
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(this,
-                "Le gagnant est "+c.getElimination().getEquipe().get(0),
-                "Inane error",
-                JOptionPane.INFORMATION_MESSAGE);
+                        "Le gagnant est " + c.getElimination().getEquipe().get(0),
+                        "Inane error",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
     }
-/**
- * initialisation de l'affichage des tour 
- */
+
+    /**
+     * initialisation de l'affichage des tour
+     */
     private void initTour() {
         EliminationDirect elim = c.getElimination();
         JPanel pano = new JPanel();
         pano.setLayout(new GridBagLayout());
         GridBagConstraints cont = new GridBagConstraints();
         cont.fill = GridBagConstraints.BOTH;
-        JLabel tour=new JLabel();
+        JLabel tour = new JLabel();
         for (int t = 0; t < elim.getTour().size(); t++) {
             int i = 1;
-            for (Duel duel : elim.getTour().get(t).getDuel()) {
-                cont.gridx = t;
-                cont.gridy = i;
-                pano.add(new VueMatch(duel), cont);
-                i++;
-            }
+            
+                for (Duel duel : elim.getTour().get(t).getDuel()) {
+                    cont.gridx = t;
+                    cont.gridy = i;
+                    pano.add(new VueMatch(duel), cont);
+                    i++;
+                }
+            
         }
-        cont.gridy=0;
-        cont.gridx=0;
-        cont.gridwidth=elim.getTour().size();
-        pano.add(this.simulation,cont);
-        
+        cont.gridy = 0;
+        cont.gridx = 0;
+        cont.gridwidth = elim.getTour().size();
+        pano.add(this.simulation, cont);
+
         this.setContentPane(pano);
     }
 

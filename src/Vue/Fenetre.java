@@ -28,8 +28,8 @@ public class Fenetre extends JFrame implements ActionListener{
     private C1 c1;
     private C3 c3;
     private JMenuBar menuBar;
-    private JMenu edit,coupe;
-    private JMenuItem ajoutEquipe,ajoutArbitre,LancerC1,LancerC2;
+    private JMenu edit,coupe,stats;
+    private JMenuItem ajoutEquipe,ajoutArbitre,LancerC1,LancerC2,statequipe;
     private JInternalFrame fen=new Acceuil();
 
     public Fenetre(Coupe c) {
@@ -49,7 +49,9 @@ public class Fenetre extends JFrame implements ActionListener{
         menuBar=new JMenuBar();
         edit=new JMenu("Edit");
         coupe=new JMenu("Coupe");
+        this.stats=new JMenu("Stats");
         ajoutEquipe=new JMenuItem("Ajout Equipe");
+        this.statequipe=new JMenuItem("Stats Equipe");
         ajoutArbitre=new JMenuItem("Ajout Arbitre");
         this.LancerC1=new JMenuItem("Lancer C1");
         this.LancerC2=new JMenuItem("Lancer C3");
@@ -59,8 +61,11 @@ public class Fenetre extends JFrame implements ActionListener{
         edit.add(ajoutEquipe);
         edit.add(ajoutArbitre);
         menuBar.add(edit);
+        stats.add(statequipe);
+        menuBar.add(stats);
         this.setJMenuBar(menuBar);
         
+        statequipe.addActionListener(this);
         ajoutEquipe.addActionListener(this);
         ajoutArbitre.addActionListener(this);
         this.LancerC1.addActionListener(this);
@@ -89,6 +94,12 @@ public class Fenetre extends JFrame implements ActionListener{
             this.pack();
             this.repaint();
         }else if(e.getSource()==this.LancerC2){
+            this.remove(fen);
+            this.fen=new VueC3(c3);
+            this.add(fen);
+            this.pack();
+            this.repaint();
+        }else if(e.getSource()==this.statequipe){
             this.remove(fen);
             this.fen=new VueC3(c3);
             this.add(fen);
