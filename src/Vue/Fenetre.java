@@ -11,10 +11,8 @@ import fifa.Coupe;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -100,9 +98,6 @@ public class Fenetre extends JFrame implements ActionListener{
             this.pack();
             this.repaint();
         }else if(e.getSource()==this.statequipe){
-            this.remove(fen);
-            this.fen=new VueC3(c3);
-            this.add(fen);
             this.pack();
             this.repaint();
         }

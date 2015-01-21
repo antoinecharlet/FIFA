@@ -45,7 +45,7 @@ boolean pouleJoue=false;
 
             ArrayList<Equipe> qualifiees = new ArrayList();
             ArrayList<Equipe> classement = new ArrayList();
-            for (Groupe groupe1 : poule.getGroupe()) {
+            for (   Groupe groupe1 : poule.getGroupe()) {
                 classement = groupe1.getClassement();//ajout 1er et deuxieme classement
                 qualifiees.add(classement.get(0));
                 qualifiees.add(classement.get(1));
